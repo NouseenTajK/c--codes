@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void dayOfProgrammer(int year) {
+    if (year == 1918) {
+        printf("26.09.1918\n");
+    }
+    else if (year >= 1700 && year <= 1917) { // Julian calendar
+        if (year % 4 == 0)
+            printf("12.09.%d\n", year);
+        else
+            printf("13.09.%d\n", year);
+    }
+    else { // Gregorian calendar
+        if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0))
+            printf("12.09.%d\n", year);
+        else
+            printf("13.09.%d\n", year);
+    }
+}
+
+int main() {
+    int year;
+    scanf("%d", &year);
+
+    dayOfProgrammer(year);
+
+    return 0;
+}
